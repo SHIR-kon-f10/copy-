@@ -1,8 +1,21 @@
 from re import template
 from flask import Flask, render_template, request, redirect
 import psycopg2
-
 from os import getenv
+from urllib3.util import parse_url
+
+def get_database():
+    parsed_url = parse_url(getenv("DATABASE_URL"))
+
+    # Берём из auth имя пользователя и пароль от БД
+    username, password = parsed_url.auth.split(':')
+
+    return psycopg2.connect(
+        database = parsed_url.path[1:],  # Пропускаем первый "/", так как он не является названием БД
+        host=parsed_url.host,
+        user=username,
+        password=password
+    )
 
 db_url = getenv('DATABASE_URL')
 
