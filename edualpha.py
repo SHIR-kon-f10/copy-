@@ -17,11 +17,9 @@ def get_database():
         password=password
     )
 
-db_url = getenv('DATABASE_URL')
-
 app = Flask(__name__)
 
-conn = psycopg2.connect(url = db_url)
+conn = get_database()
 
 cursor = conn.cursor()
 
