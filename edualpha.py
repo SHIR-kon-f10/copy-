@@ -1,7 +1,6 @@
+from re import template
 from flask import Flask, render_template, request, redirect
 import psycopg2
-import requests
-import time
 
 app = Flask(__name__)
 
@@ -19,11 +18,11 @@ def login():
     if request.method == 'POST':
         if request.form.get("login"):
             
-            name = request.form.get('username')
+            name = request.form.get('username_or_E-mail')
             password = request.form.get('password')
 
             #Исключение на пустые поля
-            if len(name)==0 or len(password)==0:
+            if len(str(name))==0 or len(str(password))==0:
                 return render_template('error404.html')
 
             cursor.execute("SELECT * FROM users WHERE name=%s AND password=%s", (str(name), str(password)))
@@ -33,7 +32,7 @@ def login():
             if len(records)==0:
                 return render_template('error404.html')
 
-            return render_template('account.html', full_name=records[0][1], login='login: '+str(name), password='password: '+str(password))
+            return redirect("/account/")
 
         elif request.form.get("registration"):
             return redirect("/registration/")
@@ -41,75 +40,63 @@ def login():
     return render_template('login.html')
 
 # Register ----------------------------------------------------------------------------------------------------------------------------------------------
-@app.route('/Sign up/', methods=['POST', 'GET'])
+@app.route('/registration/', methods=['POST', 'GET'])
 def registration():
     if request.method == 'POST':
-        name = request.form.get('name')
-        login = request.form.get('login')
-        password = request.form.get('password')
-        
-        #Исключение на пустые поля
-        cursor.execute("SELECT * FROM users WHERE name='"+str(login)+"';")
+        if request.form.get("Sign_up"):
+            name = request.form.get('Name')
+            login = request.form.get('username or E-mail')
+            password = request.form.get('password')
+            surname = request.form.get('Surname')
+            
+            #Исключение на пустые поля
+            cursor.execute("SELECT * FROM users WHERE name='"+str(login)+"';")
 
-        #замена ненужных символов
-        name = name.replace(' ', ',')
+            #замена ненужных символов
+            #name = name.replace(' ', ',')
 
-        if len(name)==0 or len(login)==0 or len(password)==0:
-            return render_template('error404.html')
+            if len(str(name))==0 or len(str(login))==0 or len(str(password))==0:
+                return render_template('error404.html')
 
-        #Исключение на пользователя с таким же логином
-        elif len(cursor.fetchall()):
-            return render_template('error404.html')
-        else:
-            cursor.execute('INSERT INTO users (lot, name, password) VALUES (%s, %s, %s);', (str(name), str(login), str(password)))
+            #Исключение на пользователя с таким же логином
+            elif len(cursor.fetchall()):
+                return render_template('error404.html')
+            else:
+                cursor.execute('INSERT INTO users (name, email, password, surname) VALUES (%s, %s, %s, %s);', (str(name), str(login), str(password), str(surname)))
 
-            conn.commit()
+                conn.commit()
 
+                return redirect('/login/')
+        if request.form.get("login"):
             return redirect('/login/')
-
     return render_template('registration.html')
-
-# Back --------------------------------------------------------------------------------------------------------------------------------------------------
-@app.route('/Back/' , methods=['POST','GET'])
-def back():
+# account -------------------------------------------------------------------------------------------------------------------------------------------------
+@app.route('/account/', methods=['POST','GET'])
+def account():
     if request.method == 'POST':
-
-        conn.commit()
-
-        return redirect('/account/')
-
-# Create form -------------------------------------------------------------------------------------------------------------------------------------------
-@app.route('/Create form/', methods=['POST', 'GET'])
+        if request.form.get("CreateForm"):
+            return redirect('/CreateaForm/')
+        if request.form.get("logout"):
+            return redirect('/login/')
+    return render_template('account.html')
+# Create Form ---------------------------------------------------------------------------------------------------------------------------------------------
+@app.route('/CreateaForm/', methods=['POST', 'GET'])
 def create_form():
     if request.method == 'POST':
-        title = request.form.get('title')
-        maintext = request.form.get('maintext')
-        subject = request.form.get('subject')
-        grade = request.form.get('grade')
-        olimp = request.form.get('olimp')
-        lotr = request.form.get('tags')
+        if request.form.get("Save"):
+            title = request.form.get('title')
+            maintext = request.form.get('maintext')
+            subject = request.form.get('subject')
+            grade = request.form.get('grade')
+            olimp = request.form.get('olimp')
+            lotr = request.form.get('tags')
 
-        if len(title)<16 or len(maintext)<32 or len(subject)==0 or len(grade)==0:
-            return render_template('error404.html')
-        else:
-            cursor.execute('INSERT INTO forms (title, description, course, status, owner, lot) VALUES (%s, %s, %s);', (str(title), str(maintext), str(subject), str(olimp), str(grade), str(lotr)))
+            if len(str(title))<16 or len(str(maintext))<32 or len(str(subject))==0 or len(str(grade))==0:
+                return render_template('error404.html')
+            else:
+                cursor.execute('INSERT INTO forms (title, description, course, status, owner, lot) VALUES (%s, %s, %s, %s, %s, %s);', (str(title), str(maintext), str(subject), str(olimp), str(grade), str(lotr)))
 
-            conn.commit()
+                conn.commit()
 
-            return redirect('/account/')
-
-# Log out -----------------------------------------------------------------------------------------------------------------------------------------------
-@app.route('/log out/', methods=['POST'])
-def logout():
-    if request.method == 'POST':
-        #return redirect('/login/')
-        pass
-
-    return render_template('/login/')
-
-# locate to create form ---------------------------------------------------------------------------------------------------------------------------------
-@app.route('/ltcf/')
-def ltcf():
-    if request.method == 'POST':
-        pass
-    return render_template('/Create form/')
+                return redirect('/account/')
+    return render_template('CreateForm.html')
