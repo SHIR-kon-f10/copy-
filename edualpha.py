@@ -2,13 +2,13 @@ from re import template
 from flask import Flask, render_template, request, redirect
 import psycopg2
 
+from os import getenv
+
+db_url = getenv('DATABASE_URL')
+
 app = Flask(__name__)
 
-conn = psycopg2.connect(database="postgres",
-                        user="postgres",
-                        password="postgresql",
-                        host="localhost",
-                        port="5432")
+conn = psycopg2.connect(url = db_url)
 
 cursor = conn.cursor()
 
