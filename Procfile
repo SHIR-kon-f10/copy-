@@ -1,0 +1,1 @@
+web: gunicorn edualpha:app --log-file=- --log-level=debug
