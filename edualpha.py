@@ -111,3 +111,7 @@ def create_form():
 
                 return redirect('/account/')
     return render_template('CreateForm.html')
+# Standart redirect ---------------------------------------------------------------------------------------------------------------------------------------
+@app.route('/', methods = ['GET'])
+def redirect():
+    return redirect('/login/')
