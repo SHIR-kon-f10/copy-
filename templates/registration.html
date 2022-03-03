@@ -2,8 +2,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Registration</title>
-    <link rel="shortcut icon" href="https://github.com/SHIR-kon-f10/copy-/blob/main/templates/icon.png?raw=true" type="image/png">
-    <link rel="stylesheet" href="/home/lev/Рабочий стол/hege/templates/registation.css">
+    <link rel="shortcut icon" href="/static/icon.png" type="image/png">
+    <link rel="stylesheet" href="/static/registation.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Raleway&display=swap" rel="stylesheet"> 
@@ -20,34 +20,36 @@
 
 
         <p  style="position: absolute; border-bottom: 4px solid #FCF7DD; width: 30%; left: 35%; bottom: 140px;"> 
-    <input class="box" placeholder="username or E-mail" type="email" name="username or E-mail">
+    <input class="box" placeholder="Username or E-mail" type="text" name="username or E-mail">
     
-    </p>
     <p style="position: absolute; border-bottom: 4px solid #FCF7DD; width: 30%; left: 35%; bottom: 215px;">
-        <input class="box" placeholder="password" type="password" name="password">
+        <input class="box" placeholder="Password" type="password" name="password">
     </p>
 
     <p  style="position: absolute; border-bottom: 4px solid #FCF7DD; width: 30%; left: 35%; bottom: 375px;"> 
-        <input class="box" placeholder="Name" type="text" name="Name">
+        <input class="box" placeholder="Login" type="text" name="Name">
         
         </p>
         <p style="position: absolute; border-bottom: 4px solid #FCF7DD; width: 30%; left: 35%; bottom: 300px;">
-            <input class="box" placeholder="Surname" type="text" name="Surname">
+            <input class="box" placeholder="Name" type="text" name="Surname">
         </p>
     
-
     <div style="margin-top:  220px ;">
         <p style="text-align: center;">
-            <input class="Sign" type="submit" value="Sign in" name="Sign in" formaction="./account.html">
+            <input class="Sign" type="submit" value="Sign_up" name="Sign_up">
         </p>
         <p class="log">
             <label for="registration">already have an account?</label> 
         </p>
         <p style="text-align: center; color:#FCF7DD;"> 
-            <input class="but_log" type="submit" value="login" name="login" formaction="./login.html">
+            <input class="but_log" type="submit" value="login" name="login">
             
         </p>
     </div>
+    </p>
+    <p class = "exusrn">
+        <label>{{exusern}}</label>
+    </p>
     </form>
 </div>
 

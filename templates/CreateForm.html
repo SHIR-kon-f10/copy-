@@ -2,60 +2,128 @@
 <head>
     <meta charset="UTF-8">
     <title>Подать заявку</title>
-    <link rel="shortcut icon" href="./icon.png" type="image/png">
+    <link rel="shortcut icon" href="/static/icon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap" rel="stylesheet"> 
 </head>
-<body>
-<p>
-    <label for="Subject">Предмет олимпиады</label>
-    <input placeholder="Предмет олимпиады" list="Subjects" />
+<header style="background-color: 0F987F;width: 100%; position: sticky; margin: 0%;" >
+    <h1 style=" text-align: right; margin: 0%;">
+    <img src="/static/Main.logo.png" width="160" height="60" title="Главная страница" style="float: left;">
+    <label>{{reqName}}</label>
+    <input style="font-size: 20px; background-color: aquamarine;" type="submit" value="Log out" name="log out" formaction="./login.html">
+    <img src="/static/user.png" width="50" height="50" title="Аккаунт">
+    <img src="/static/question.png" width="50" height="50" title="Помощь">
+    <img src="/static/settings.png" width="50" height="50" title="Настройки">
+    </h1>
+    
+
+    </header>
+<body style="margin: 0px; ">
+<div style="background-color: aquamarine;">
+    <p>
+        <label style="font-size: 30px;" class="sub" for="Subject">Создание заявки</label>
+    </p>
+<p>    
+    <label  class="sub" for="Subject"></label>
+    <input style="font-size: 25px; width: 30%;" placeholder="Предмет олимпиады" list="Subjects" name="OlympyadSubject"/>
     <datalist id="Subjects">
     <option value="Математика"></option>
     <option value="Русский язык"></option>
+    <option value="Литература"></option>
+    <option value="История"></option>
+    <option value="Физическая культура"></option>
+    <option value="Музыка"></option>
+    <option value="Технология"></option>
+    <option value="Химия"></option>
+    <option value="Биология"></option>
+    <option value="Физика"></option>
+    <option value="Экология"></option>
+    <option value="География"></option>
+    <option value="Естествознание"></option>
+    <option value="Астрономия"></option>
+    <option value="Окружающий мир"></option>
+    <option value="Обществознание"></option>
+    <option value="Алгебра"></option>
+    <option value="Геометрия"></option>
+    <option value="Информатика"></option>
+    <option value="ОБЖ"></option>
+    <option value="МХК (искусство)"></option>
+    <option value="Экономика"></option>
+    <option value="Английский язык"></option>
+    <option value="Немецкий язык"></option>
+    <option value="Французский язык"></option>
+    <option value="Испанский язык"></option>
+    <option value="Итальянский язык"></option>
+    <option value="Китайский язык"></option>
+    <option value="Право"></option>
     </datalist>
+    <input style="font-size: 25px; width: 60%;" placeholder="Заголовок" name="Title"/>
 </p>
-<p>
-    <label for="Class">Класс</label>
-    <input placeholder="Класс" list="Classes" />
-    <datalist id="Classes">
-    <option value="1"></option>
-    <option value="2"></option>
-    <option value="3"></option>
-    <option value="4"></option>
-    <option value="5"></option>
-    <option value="6"></option>
-    <option value="7"></option>
-    <option value="8"></option>
-    <option value="9"></option>
-    <option value="10"></option>
-    <option value="11"></option>
-    <option value="Я закончил школу"></option>
 
-    </datalist>
+<p>
+    <textarea style="font-size: 25px; width: 90%; height: 50%; resize: none;" placeholder="Напишите здесь что-нибудь о себе, и то, что вам нужно от напарника"></textarea>
 </p>
+
+
+<input style="font-size: 25px; width: 30%;" placeholder="Ваш город" list="Towns" />
+<datalist id="Towns">
+    <option value="Москва"></option>
+    <option value="Санкт-Петербург"></option>
+    <option value="Новосибирск"></option>
+    <option value="Екатеринбург"></option>
+    <option value="Нижний Новгород"></option>
+    <option value="Казань"></option>
+    <option value="Челябинск"></option>
+    <option value="Омск"></option>
+    <option value="Самара"></option>
+    <option value="Ростов-на-Дону"></option>
+</datalist>
+
+
+
+<input style="font-size: 25px; width: 40%;" placeholder="Название олимпиады" type="text" name="NameOlympiad">
+
+
+<input style="font-size: 25px; width: 19.5%;" placeholder="Класс" list="Classes" />
+<datalist id="Classes">
+<option value="1"></option>
+<option value="2"></option>
+<option value="3"></option>
+<option value="4"></option>
+<option value="5"></option>
+<option value="6"></option>
+<option value="7"></option>
+<option value="8"></option>
+<option value="9"></option>
+<option value="10"></option>
+<option value="11"></option>
+<option value="Я закончил школу"></option>
+
+</datalist>
+
+
+
+
 <p>
-    <label for="Subject">Название олимпиады</label>
-    <input placeholder="Название олимпиады" type="text" name="NameOlympiad">
+    <label style="font-size: 20px;" for="AboutMe">Оставьте тут свои контакты, откликнувшийся человек сразу получит их</label>
+    <input style="font-size: 20px; width: 30%;" placeholder="Контакты" type="text" name="Contacts">
+
 </p>
-<p>
-    <label for="AboutMe">Обо мне</label>
-    <input placeholder="Обо мне" type="text" name="AboutMe">
-<p>
-    <label for="TagMsk">Москва</label>
-    <input type="checkbox" value="Msk">
-    <label for="TagSpb">Санкт-Петербург</label>
-    <input type="checkbox" value="Spb"><br>
-    
+    <!-- <p>
+
     <label for="Tag1-5">1-5 класс</label>
     <input type="checkbox" value="1-5class">
     <label for="Tag5-9">5-9 класс</label>
     <input type="checkbox" value="5-9class">
     <label for="Tag9-11">9-11 класс</label>
     <input type="checkbox" value="9-11class"><br>
+</p> -->
+
+
+<p style="background-color: white; padding-top: 20px;">
+    <input type="submit" value="Отправить заявку" name="SaveForm" formaction="" style="background-color: aquamarine; font-size: 30px;">  
 </p>
-
-
-
-    <input type="button" onclick="history.back();" value="Назад"/>
-    <input type="submit" value="Create form" name="SaveForm">  
 </p>
+</div>
 </body>
