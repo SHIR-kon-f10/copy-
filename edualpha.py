@@ -10,6 +10,19 @@ app = Flask(__name__)
 
 cursor = conn.cursor()
 
+CreateTable_users = "create table users (id serial, name varchar(40), surname varchar(50), email varchar(80), password varchar(64), grade varchar(30), city varchar(100), loc varchar(500), time varchar(200), sf varchar(300), lot varchar(500), ay varchar(300), lof varchar(500) , loff varchar(500), vk varchar(100), tg varchar(100), fb varchar(100));"
+CreateTable_tags = "create table tags (id serial, title varchar(50), description varchar(150), type int);"
+CreateTable_forms = "create table forms (id serial, owner int, title varchar(100), description varchar(1000), course int, status int, lot varchar(100));"
+CreateTable_courses = "create table courses (id serial, title varchar(50), description varchar(150));"
+CreateTable_statuses = "create table statuses (id serial, title varchar(30), description varchar(100));"
+CreateTable_types_of_tags = "create table types_of_tags (id serial, title varchar(50));"
+
+cursor.execute(CreateTable_users)
+cursor.execute(CreateTable_tags)
+cursor.execute(CreateTable_forms)
+cursor.execute(CreateTable_courses)
+cursor.execute(CreateTable_types_of_tags)
+
 conn.commit()
 
 current_session = ''
