@@ -4,7 +4,7 @@ import psycopg2
 from os import getenv
 #import ImportDB
 
-conn = psycopg2.connect(getenv("DATABASE_URL"))
+conn = psycopg2.connect("postgres://cfqvlkbbmkvspl:db76b82007170e9e662f544552bd4748a3c030a67586a12c061b6c9c2f361bf6@ec2-34-253-29-48.eu-west-1.compute.amazonaws.com:5432/dfpo3tnfniqib6")
 
 app = Flask(__name__)
 
