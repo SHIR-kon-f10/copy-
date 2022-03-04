@@ -9,7 +9,9 @@
     <h1 style=" text-align: right; margin: 0%;">
     <img src="/static/Main.logo.png" width="160" height="60" title="Главная страница" style="float: left;">
     <label>{{reqName}}</label>
-    <input type="submit" value="log out" name="logout" formaction="/templates/login.html">
+    <form action="" method="post">
+    <input style="background-color: aquamarine; font-size: 25px;" type="submit" value="log out" name="logout" formaction="/templates/login.html">
+    </form>
     <img src="/static/user.png" width="32" height="32" title="Аккаунт">
     <img src="/static/question.png" width="32" height="32" title="Помощь">
     <img src="/static/settings.png" width="32" height="32" title="Настройки">
@@ -18,14 +20,14 @@
         <input style="width: 30%;" placeholder="Поиск по формам" type="text" name="SearchForms">
     </div>
 
+
     </header>
 <body style="margin: 0px;">
     <label style="font-size: 30px; padding-bottom: 30px;">Найдите подходящую заявку, или создайте свою</label>
+    <form action="" method="post">
+        <input style="background-color: aquamarine; font-size: 30px;" type="submit" value="Create form" name="Create form">
+    </form>
 
-    <input style="background-color: aquamarine; font-size: 30px;" type="submit" value="Create form" name="Create form">
-    <p style="text-align: center;">
-        <input class="Login" type="submit" value="login" name="login" >
-    </p>
 
 
     <div style="padding-bottom: 30px;">
