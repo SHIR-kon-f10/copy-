@@ -10,10 +10,6 @@ app = Flask(__name__)
 
 cursor = conn.cursor()
 
-cursor.execute("DROP TABLE forms;")
-cursor.execute("CREATE TABLE forms (id serial, owner varchar(40), title varchar(100), maintext varchar(500), contacts varchar(100), subject varchar(30), tag1 varchar(50), tag2 varchar(50), tag3 varchar(50), tag4 varchar(50), tag5 varchar(50), tag7 varchar(50), tag8 varchar(50));")
-cursor.execute("CREATE TABLE kal(id int, type text);")
-
 conn.commit()
 
 current_session = ''
@@ -114,7 +110,7 @@ def create_form():
             owner = username
 
             if len(str(title))<1 or len(str(maintext))<1 or len(str(subject))==0 or len(str(contacts))==0:
-                return render_template('error.html')
+                return render_template('eror.html')
             else:
                 cursor.execute("ROLLBACK;")
                 cursor.execute('INSERT INTO forms (owner, title, maintext, contacts, subject, tag1, tag2, tag3, tag4, tag5, tag6, tag7, tag8) VALUES (%s, %s, %s, %s, %s, %s, %s, %s);',
