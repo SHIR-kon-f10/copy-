@@ -15,11 +15,11 @@ conn.commit()
 current_session = ''
 
 Titles = ['Math']*7
-Authors = ['я люблю вареные Яйца']*21
-MainTexts = ['sosem']*21
+Authors = ['Евгений Морозов','Мирон Провоторов',"Алексей Куликов", "Владимир Войков", "Имя Автора", "Имя Автора", "Имя Автора", "Имя Автора", "Имя Автора", "Имя Автора", "Имя Автора", "Имя Автора", "Имя Автора", "Имя Автора", "Имя Автора", "Имя Автора", "Имя Автора", "Имя Автора", "Имя Автора", "Имя Автора", "Имя Автора", "Имя Автора"]
+MainTexts = ['']*21
 Tags = ['vanilla']*105
-Whens = ['3th oct']*21
-Subjects = ['maths']*21
+Whens = ['4th Mr']*21
+Subjects = ['Maths']*21
 
 # Setting Databases ------------------------------------------------------------------------------------------------------------------------------------
 #ImportDB.clear_lot()
@@ -61,7 +61,7 @@ def registration():
     if request.method == 'POST':
         if request.form.get("Sign_up"):
             name = request.form.get('Name')
-            login = request.form.get('username or E-mail')
+#            login = request.form.get('username or E-mail')
             password = request.form.get('password')
             surname = request.form.get('Surname')
             try:
