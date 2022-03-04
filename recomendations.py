@@ -6,7 +6,7 @@ popblocks = ['Mathematics', 'Biology', 'Recently seen', 'Moscow']
 
 conn = psycopg2.connect(database="postgres",
                         user="postgres",
-                        password="postgresql",
+                        password="admin",
                         host="localhost",
                         port="5432")
 
@@ -19,9 +19,10 @@ def popular():
         tag = popblocks[i]
         cursor.execute("SELECT * FROM forms WHERE lot = {0};".format(tag))
         records = cursor.fetchall()
-        for i in range(5):
-            
-            list_of_forms.append()
+        for row in records:
+            for i in range(5):
+                list_of_forms.append(row[i])
+                print(i)
     popblocks.append
 
 def collect():

@@ -10,6 +10,9 @@ app = Flask(__name__)
 
 cursor = conn.cursor()
 
+cursor.execute("DROP TABLE forms;")
+cursor.execute("CREATE TABLE forms (id serial, owner varchar(40), title varchar(100), maintext varchar(500), contacts varchar(100), subject varchar(30), tag1 varchar(50), tag2 varchar(50), tag3 varchar(50), tag4 varchar(50), tag5 varchar(50), tag7 varchar(50), tag8 varchar(50));")
+
 conn.commit()
 
 current_session = ''
@@ -92,20 +95,29 @@ def account():
 def create_form():
     username = current_session
     if request.method == 'POST':
+        if request.form.get('log out'):
+            return redirect('/login/')
         if request.form.get("Create form"):
             title = request.form.get('Title')
+            city = request.form.get('Cities')
             maintext = request.form.get('maintext')
             subject = request.form.get('OlympyadSubject')
             olimp = request.form.get('NameOlympiad')
-            lotr = request.form.get('tags')
+            #lotr = request.form.get('tags')
             contacts = request.form.get('Contacts')
+            grade = request.form.get('Clas')
+            team = request.form.get('Team')
+            age = request.form.get('Age')
+            activity = request.form.get('Typee')
+            frequency = request.form.get('Time')
             owner = username
 
             if len(str(title))<16 or len(str(maintext))<32 or len(str(subject))==0 or len(str(contacts))==0:
                 return render_template('error.html')
             else:
                 cursor.execute("ROLLBACK;")
-                cursor.execute('INSERT INTO forms (title, description, course, status, owner, lot, contacts) VALUES (%s, %s, %s, %s, %s, %s, %s);', (str(title), str(maintext), str(subject), str(olimp), str(owner), str(lotr), str(contacts)))
+                cursor.execute('INSERT INTO forms (owner, title, maintext, contacts, subject, tag1, tag2, tag3, tag4, tag5, tag6, tag7, tag8) VALUES (%s, %s, %s, %s, %s, %s, %s, %s);',
+                (str(owner), str(title), str(maintext)), str(contacts), str(subject), str(city), str(olimp), str(grade), str(team), str(age), str(activity), str(frequency))
 
                 conn.commit()
 

@@ -10,26 +10,24 @@
 <header style="background-color: 0F987F;width: 100%; position: sticky; margin: 0%;" >
     <h1 style=" text-align: right; margin: 0%;">
     <img src="/static/Main.logo.png" width="160" height="60" title="Главная страница" style="float: left;">
-
-    <form action="" method="post" >
-        <label>{{reqName}}</label>
-        <input style="font-size: 20px; background-color: aquamarine;" type="submit" value="Log out" name="log out">
-        <img src="/static/user.png" width="50" height="50" title="Аккаунт">
-        <img src="/static/question.png" width="50" height="50" title="Помощь">
-        <img src="/static/settings.png" width="50" height="50" title="Настройки">
+    <label>{{reqName}}</label>
+    <form action="" method="post">
+    <input style="font-size: 20px; background-color: aquamarine;" type="submit" value="Log out" name="log out" formaction="./login.html">
     </form>
- 
+    <img src="/static/user.png" width="50" height="50" title="Аккаунт">
+    <img src="/static/question.png" width="50" height="50" title="Помощь">
+    <img src="/static/settings.png" width="50" height="50" title="Настройки">
     </h1>
     
 
     </header>
-<body style="margin: 0px;">
+<body style="margin: 0px; ">
 <div style="background-color: aquamarine;">
+    <form action="" method="post">
     <p>
         <label style="font-size: 30px;" class="sub" for="Subject">Создание заявки</label>
     </p>
-    <form action="" method="post" >
-<p>   
+<p>    
     <label  class="sub" for="Subject"></label>
     <input style="font-size: 25px; width: 30%;" placeholder="Предмет олимпиады" list="Subjects" name="OlympyadSubject"/>
     <datalist id="Subjects">
@@ -63,14 +61,15 @@
     <option value="Китайский язык"></option>
     <option value="Право"></option>
     </datalist>
-    <input style="font-size: 25px; width: 60%;" placeholder="Заголовок" name = "Title" />
-</p>   
+    <input style="font-size: 25px; width: 60%;" placeholder="Заголовок" name="Title"/>
+</p>
+
 <p>
-    <textarea style="font-size: 25px; width: 90%; height: 50%; resize: none;" placeholder="Напишите здесь что-нибудь о себе, и то, что вам нужно от напарника" name = 'maintext'></textarea>
+    <textarea style="font-size: 25px; width: 90%; height: 50%; resize: none;" placeholder="Напишите здесь что-нибудь о себе, и то, что вам нужно от напарника"></textarea>
 </p>
 
 
-<input style="font-size: 25px; width: 30%;" placeholder="Ваш город" list="Towns" name = "Cities"/>
+<input style="font-size: 25px; width: 30%;" placeholder="Ваш город" list="Towns"/>
 <datalist id="Towns">
     <option value="Москва"></option>
     <option value="Санкт-Петербург"></option>
@@ -89,7 +88,7 @@
 <input style="font-size: 25px; width: 40%;" placeholder="Название олимпиады" type="text" name="NameOlympiad">
 
 
-<input style="font-size: 25px; width: 19.5%;" placeholder="Класс" list="Classes"  name = "Clas"/>
+<input style="font-size: 25px; width: 19.5%;" placeholder="Класс" list="Classes" />
 <datalist id="Classes">
 <option value="1"></option>
 <option value="2"></option>
@@ -114,61 +113,22 @@
     <input style="font-size: 20px; width: 30%;" placeholder="Контакты" type="text" name="Contacts">
 
 </p>
-<p>
-    <label>*Далее необязательные поля</label>
+    <!-- <p>
 
-</p>
+    <label for="Tag1-5">1-5 класс</label>
+    <input type="checkbox" value="1-5class">
+    <label for="Tag5-9">5-9 класс</label>
+    <input type="checkbox" value="5-9class">
+    <label for="Tag9-11">9-11 класс</label>
+    <input type="checkbox" value="9-11class"><br>
+</p> -->
 
-    <label for="Личные встречи" style="font-size: 20px;" >Личные встречи</label>
-    <input type="checkbox" value="Личные встречи">
-    <label for="Онлайн встречи" style="font-size: 20px;">Онлайн встречи</label>
-    <input type="checkbox" value="Онлайн встречи">
-
-</p> 
-
-
-<select style="font-size: 15px; width: 15%;" placeholder="Количество" list="Количество" name = "Team">
-<option value="">Количество участников</option>
-<option value="Команда из 2">Команда из 2</option>
-<option value="Команда из 3">Команда из 3</option>
-<option value="Команда из 4">Команда из 4</option>
-<option value="Команда больше 4">Команда больше 4</option>
-</select>
-
-<select style="font-size: 15px; width: 15%;" placeholder="Возраст" list="Возраст" name = "Age">
-<option value="">Желаемый возраст участника</option>
-<option value="7-10 лет">7-10 лет</option>
-<option value="10-14 лет">10-14 лет</option>
-<option value="14-17 лет">14-17 лет</option>
-<option value="18+ лет">18+ лет</option>
-</select>
-
-<select style="font-size: 15px; width: 15%;" placeholder="Деятельность" list="Деятельность" name = "Typee">
-<option value="">Деятельность</option>
-<option value="Крупный проект">Крупный проект</option>
-<option value="Небольшой проект">Небольшой проект</option>
-<option value="Разовое мероприятие">Разовое мероприятие</option>
-<option value="Совместная подготовка">Совместная подготовка</option>
-<option value="Длительная подготовка">Длительная подготовка</option>
-</select>
-
-
-
-<select style="font-size: 15px; width: 15%;" placeholder="Частота" list="Частота" name = "Time">
-
-<option value="">Частота</option>
-<option value="Меньше раза в неделю">Меньше раза в неделю</option>
-<option value="1-2 раза в неделю">1-2 раза в неделю</option>
-<option value="больше 2х раз в неделю">больше 2х раз в неделю</option>
-</select>
 
 <p style="background-color: white; padding-top: 20px;">
-    <input type="submit" value="Отправить заявку" name="SaveForm" formaction="" style="background-color: aquamarine; font-size: 30px; margin: 10px;" name = "Create form">  
+    <input type="submit" value="Отправить заявку" name="SaveForm" formaction="" style="background-color: aquamarine; font-size: 30px;">  
 </p>
-
-
-
-    </form>
+</form>
+</p>
 </p>
 </div>
 </body>
