@@ -12,6 +12,7 @@ cursor = conn.cursor()
 
 cursor.execute("DROP TABLE forms;")
 cursor.execute("CREATE TABLE forms (id serial, owner varchar(40), title varchar(100), maintext varchar(500), contacts varchar(100), subject varchar(30), tag1 varchar(50), tag2 varchar(50), tag3 varchar(50), tag4 varchar(50), tag5 varchar(50), tag7 varchar(50), tag8 varchar(50));")
+cursor.execute("CREATE TABLE kal(id int, type text);")
 
 conn.commit()
 
@@ -112,7 +113,7 @@ def create_form():
             frequency = request.form.get('Time')
             owner = username
 
-            if len(str(title))<16 or len(str(maintext))<32 or len(str(subject))==0 or len(str(contacts))==0:
+            if len(str(title))<1 or len(str(maintext))<1 or len(str(subject))==0 or len(str(contacts))==0:
                 return render_template('error.html')
             else:
                 cursor.execute("ROLLBACK;")
