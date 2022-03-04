@@ -8,13 +8,14 @@
 <header style="background-color: 0F987F;width: 100%; position: sticky; margin: 0%;" >
     <h1 style=" text-align: right; margin: 0%;">
     <img src="/static/Main.logo.png" width="160" height="60" title="Главная страница" style="float: left;">
-    <label>{{reqName}}</label>
     <form action="" method="post">
-    <input style="background-color: aquamarine; font-size: 25px;" type="submit" value="log out" name="logout" formaction="/templates/login.html">
+        <label>{{reqName}}</label>
+    <input style="background-color: aquamarine;" type="submit" value="log out" name="logout" formaction="/templates/login.html">
     <img src="/static/user.png" width="32" height="32" title="Аккаунт">
     <img src="/static/question.png" width="32" height="32" title="Помощь">
     <img src="/static/settings.png" width="32" height="32" title="Настройки">
     </form>
+
     </h1>
     <div  style="background-color: 36A490;width: 100%; text-align: center;">
         <input style="width: 30%;" placeholder="Поиск по формам" type="text" name="SearchForms">
