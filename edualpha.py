@@ -126,7 +126,7 @@ def load_recomendations():
     if request.method == 'POST':
         if request.form.get('click'):
             return redirect('/form/')
-        elif request.form.get("login"):
+        elif request.form.get("Create form"):
             current_session = username
             return redirect("/CreateForm/")
         elif request.form.get('logout'):
