@@ -1,7 +1,7 @@
 import psycopg2
 
 lot = []
-popblocks = []
+popblocks = ['Mathematics', 'Biology', 'Recently seen', 'Moscow']
 
 
 conn = psycopg2.connect(database="postgres",
@@ -13,6 +13,15 @@ conn = psycopg2.connect(database="postgres",
 cursor = conn.cursor()
 
 def popular():
+    tag = ''
+    list_of_forms = []
+    for i in range(len(popblocks)):
+        tag = popblocks[i]
+        cursor.execute("SELECT * FROM forms WHERE lot = {0};".format(tag))
+        records = cursor.fetchall()
+        for i in range(5):
+            
+            list_of_forms.append()
     popblocks.append
 
 def collect():

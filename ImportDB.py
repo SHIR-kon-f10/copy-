@@ -9,6 +9,7 @@ conn = psycopg2.connect(database="postgres",
 
 cursor = conn.cursor()
 
+
 conn.commit()
 
 lines = []

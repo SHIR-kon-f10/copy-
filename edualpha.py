@@ -1,13 +1,10 @@
 from re import S
 from flask import Flask, render_template, request, redirect
 import psycopg2
-import ImportDB
+from os import getenv
+#import ImportDB
 
-conn = psycopg2.connect(database="postgres",
-                        user="postgres",
-                        password="admin",
-                        host="localhost",
-                        port="5432")
+conn = psycopg2.connect(getenv("DATABASE_URL"))
 
 app = Flask(__name__)
 
@@ -18,7 +15,7 @@ conn.commit()
 current_session = ''
 
 Titles = ['Math']*7
-Authors = ['Петр Федин Большие Яйца']*21
+Authors = ['я люблю вареные Яйца']*21
 MainTexts = ['sosem']*21
 Tags = ['vanilla']*105
 Whens = ['3th oct']*21
@@ -121,6 +118,7 @@ def redirecty():
 # Home page -----------------------------------------------------------------------------------------------------------------------------------------------
 @app.route('/homepage/', methods = ['POST','GET'])
 def load_recomendations():
+    global current_session
     username = current_session
     #global Titles, Authors, MainTexts, Tags, Whens, Subjects
     #cursor.execute('SELECT * FROM users WHERE name = {0};'.format("'"+str(current_session)+"'"))
@@ -128,7 +126,7 @@ def load_recomendations():
     if request.method == 'POST':
         if request.form.get('click'):
             return redirect('/form/')
-        elif request.form.get("CreateForm"):
+        elif request.form.get("login"):
             current_session = username
             return redirect("/CreateForm/")
         elif request.form.get('logout'):
