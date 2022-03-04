@@ -73,7 +73,7 @@ def registration():
                     render_template('registration.html', exusern = 'Fill all gaps')
                 else:
                     cursor.execute("ROLLBACK;")
-                    cursor.execute("INSERT INTO users (name, email, password, surname) VALUES ({0},{1},{2},{3});".format("'" +str(name)+ "'","'" +str(login)+"'","'" +str(password)+"'", "'"+str(surname)+"'"))
+                    cursor.execute("INSERT INTO users (name, email, password, surname) VALUES ({0},"'RH'",{2},{3});".format("'" +str(name)+ "'","'" +str(password)+"'", "'"+str(surname)+"'"))
                     conn.commit()
 
                     return redirect('/login/')
