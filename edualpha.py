@@ -163,6 +163,6 @@ def load_recomendations():
         Tag4_2_4 = Tags[67], Tag4_2_5 = Tags[68], Tag4_3_1 = Tags[69], Tag4_3_2 = Tags[70], Tag4_3_3 = Tags[71], Tag4_3_4 = Tags[72], Tag4_3_5 = Tags[73], Tag4_4_1 = Tags[74],
         Tag4_4_2 = Tags[75], Tag4_4_3 = Tags[76], Tag4_4_4 = Tags[77], Tag4_4_5 = Tags[78])
 
-# @app.route("form", methods=["POST","GET"])
-# def Form():
-#     return render_template("Form.html", FormNum = 123)
+@app.route("form", methods=["POST","GET"])
+def Form():
+    return render_template("Form.html", FormNum=123)
