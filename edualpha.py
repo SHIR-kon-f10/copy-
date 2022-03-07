@@ -165,4 +165,4 @@ def load_recomendations():
 
 @app.route("/form/", methods=["POST","GET"])
 def Form():
-    return render_template("Form.html", FormNum= request.cookies.get("FOrm_id"))
+    return render_template("Form.html", FormNum= request.cookies.get("Form_id"))
