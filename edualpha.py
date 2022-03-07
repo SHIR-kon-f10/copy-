@@ -134,9 +134,9 @@ def load_recomendations():
     #records = cursor.fetchall()
     if request.method == 'POST':
         if request.form.get('click'):
-            # res = make_response("")
-            # res.set_cookie("Form_id", 123 )
-            # res.headers['location'] = url_for(Form)
+            res = make_response("")
+            res.set_cookie("Form_id", 12345 )
+            res.headers['location'] = url_for(Form)
             return redirect('/form/')
         elif request.form.get("Create form"):
             current_session = username
@@ -165,4 +165,4 @@ def load_recomendations():
 
 @app.route("/form/", methods=["POST","GET"])
 def Form():
-    return render_template("Form.html", FormNum=123)
+    return render_template("Form.html", FormNum= request.cookies.get("FOrm_id"))
