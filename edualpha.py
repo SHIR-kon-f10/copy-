@@ -135,9 +135,9 @@ def load_recomendations():
     #records = cursor.fetchall()
     if request.method == 'POST':
         if request.form.get('click'):
-            res = make_response("")
-            res.set_cookie("Form_id", 123 )
-            res.headers['location'] = url_for(Form)
+            # res = make_response("")
+            # res.set_cookie("Form_id", 123 )
+            # res.headers['location'] = url_for(Form)
             return redirect('/form/')
         elif request.form.get("Create form"):
             current_session = username
@@ -164,6 +164,6 @@ def load_recomendations():
         Tag4_2_4 = Tags[67], Tag4_2_5 = Tags[68], Tag4_3_1 = Tags[69], Tag4_3_2 = Tags[70], Tag4_3_3 = Tags[71], Tag4_3_4 = Tags[72], Tag4_3_5 = Tags[73], Tag4_4_1 = Tags[74],
         Tag4_4_2 = Tags[75], Tag4_4_3 = Tags[76], Tag4_4_4 = Tags[77], Tag4_4_5 = Tags[78])
 
-@app.route("Form", methods=["POST","GET"])
+@app.route("form", methods=["POST","GET"])
 def Form():
-    return render_template("Form.html", FormNum = request.get_cookie("Form_id"))
+    return render_template("Form.html", FormNum = 123)
