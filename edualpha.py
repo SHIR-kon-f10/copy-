@@ -1,5 +1,6 @@
+from crypt import methods
 from re import S
-from flask import Flask, render_template, request, redirect
+from flask import*
 import psycopg2
 from os import getenv
 #import ImportDB
@@ -134,6 +135,9 @@ def load_recomendations():
     #records = cursor.fetchall()
     if request.method == 'POST':
         if request.form.get('click'):
+            res = make_response("")
+            res.set_cookie("Form_id", 123 )
+            res.headers['location'] = url_for(Form)
             return redirect('/form/')
         elif request.form.get("Create form"):
             current_session = username
@@ -159,3 +163,7 @@ def load_recomendations():
         Tag4_1_1 = Tags[59], Tag4_1_2 = Tags[60], Tag4_1_3 = Tags[61], Tag4_1_4 = Tags[62], Tag4_1_5 = Tags[63], Tag4_2_1 = Tags[64], Tag4_2_2 = Tags[65], Tag4_2_3 = Tags[66],
         Tag4_2_4 = Tags[67], Tag4_2_5 = Tags[68], Tag4_3_1 = Tags[69], Tag4_3_2 = Tags[70], Tag4_3_3 = Tags[71], Tag4_3_4 = Tags[72], Tag4_3_5 = Tags[73], Tag4_4_1 = Tags[74],
         Tag4_4_2 = Tags[75], Tag4_4_3 = Tags[76], Tag4_4_4 = Tags[77], Tag4_4_5 = Tags[78])
+
+@app.route("Form", methods=["POST","GET"])
+def Form():
+    return render_template(Form.html, FormNum = request.get_cookie("Form_id"))
