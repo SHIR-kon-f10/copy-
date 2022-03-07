@@ -1,4 +1,3 @@
-from crypt import methods
 from re import S
 from flask import*
 import psycopg2
