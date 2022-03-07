@@ -136,7 +136,7 @@ def load_recomendations():
         if request.form.get('click'):
             res = make_response("")
             res.set_cookie("Form_id", 12345 )
-            res.headers['location'] = url_for("Form")
+            res.headers['location'] = url_for("form")
             return redirect('/form/')
         elif request.form.get("Create form"):
             current_session = username
