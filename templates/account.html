@@ -2,36 +2,69 @@
 <head>
     <meta charset="UTF-8">
     <title>Account</title>
-    <link rel="shortcut icon" href="/static/icon.png" type="image/png">
+    <link rel="shortcut icon" href="https://github.com/SHIR-kon-f10/copy-/blob/main/templates/icon.png?raw=true" type="image/png">
+    <link rel="stylesheet" href="../static/accounts.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Raleway&display=swap" rel="stylesheet"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rakkas&display=swap" rel="stylesheet"> 
+
 
 </head>
-<body>
-    <a href="/templates/CreateForm.html">Подать заявку</a>
+<header style="background-color: 0F987F;width: 100%; position: sticky; margin: 0%;" >
+    <h1 style=" text-align: right; margin: 0%;">
+    <img src="/static/Main.logo.png" width="160" height="60" title="Главная страница" style="float: left;">
 
-    <form action="" method="post">
+    <form action="" method="post" >
+        <label>{{reqName}}</label>
+        <input style="font-size: 20px; background-color: aquamarine;" type="submit" value="Log out" name="log out">
+        <img src="/static/user.png" width="50" height="50" title="Аккаунт">
+        <img src="/static/question.png" width="50" height="50" title="Помощь">
+        <img src="/static/settings.png" width="50" height="50" title="Настройки">
+    </form>
+ 
+    </h1>
+    
 
-    <p>
-        <input type="submit" value="ltcf" name="cf">
-    <a>Нрмальная кнопка</a> 
-        </p>
-    <p>
-     <a href="/templates/MyForms.html">Мои заявки</a>
- </p>
- <p>
-     <a href="/templates/AllForms.html">Чужие заявки</a>
-    </p>
-    <p>
-     <a href="/templates/AllUsers.html">Все пользователи</a>
-    </p>
-    <p>
-     <a href="/templates/MyAccount.html">Моя анкета</a>
- </p>
- <p>
-    <input type="submit" value="log out" name="log out">
+    </header>
+<body style="margin: 0%; background:url(../static/boat2.png); background-size: 110%;">
+    <div style="background-color: rgb(81, 81, 129); width: 23%; text-align: center; font-size: 20px; height: 80%; 
+    border-radius: 10px; margin-left: 10px; float: left;">
+        
+        
+
+        <form action="" method="post">
+    
+        <p>
+            <input  class="MenuButton" type="submit" value="Мои заявки" name="MyForms" formaction="./MyForms.html">
+       </p>
+       <p>
+        <input  class="MenuButton" type="submit" value="Чужие заявки" name="AllForms" formaction="./AllForms.html">
    </p>
- <a href="https://t.me/drakoncheg">Контакты разработчика</a>
+   <p>
+    <input  class="MenuButton" type="submit" value="Все пользователи" name="AllUsers" formaction="./All.html">
+</p>
+<p>
+    <input  class="MenuButton" type="submit" value="Моя анкета" name="MyAccount" formaction="./MyAccount.html">
+</p>
+<p>
+    <input  class="MenuButton" style="margin-bottom: 40%;" type="submit" value="Выйти из аккаунта" name="Logout" formaction="./login.html">
+</p>
 
- </form>
+
+       <p>
+        <a style="color: white;" href="https://t.me/drakoncheg">Контакты разработчиков</a>
+       </p>
+    
+     </form>
+    </div>
+
+    <div style="background-color: aquamarine; float: left; height: 80%; width: 73%; margin-left: 5px; 
+    border-top-right-radius: 40px; opacity: 50%; border-bottom-right-radius: 40px;">
+
+    </div>
 
 </body>
 </html>

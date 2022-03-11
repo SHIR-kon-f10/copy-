@@ -1,0 +1,14 @@
+.MenuButton {
+    width: 85%; 
+    height: 8%; 
+    margin-top: 2%; 
+    border-radius: 15px; 
+    background-color: rgb(81, 81, 129); 
+    font-size: 25px; 
+    color: white;
+
+}
+
+.a{
+    background-color: black;
+}
