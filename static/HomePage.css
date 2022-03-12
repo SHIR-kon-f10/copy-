@@ -1,0 +1,28 @@
+.button{
+    width: 30%; 
+    height: 200px; 
+    background-color:rgb(134, 187, 169); 
+    margin-right: 3.3%; 
+    float: left; 
+    display: block; 
+    color: rgb(0, 0, 0);
+}
+
+.p{
+    margin: 0px; 
+    height: 92%;
+}
+
+.Main{
+    float: left; 
+    margin-top: 30px; 
+    height: 75%; 
+    width: 100%; 
+    overflow-y: hidden; 
+    word-break: break-all;
+    text-align: left;
+}
+
+.A{
+    float: left;
+}
