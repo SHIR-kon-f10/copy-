@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <title>Account</title>
     <link rel="shortcut icon" href="https://github.com/SHIR-kon-f10/copy-/blob/main/templates/icon.png?raw=true" type="image/png">
-    <link rel="stylesheet" href="../static/accounts.css">
+    <link rel="stylesheet" href="/static/accounts.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Raleway&display=swap" rel="stylesheet"> 
@@ -29,14 +29,16 @@
     
 
     </header>
-<body style="margin: 0%; background:url(../static/boat2.png); background-size: 110%;">
+<body style="margin: 0%; background:url(/static/boat2.png); background-size: 110%;">
     <div style="background-color: rgb(81, 81, 129); width: 23%; text-align: center; font-size: 20px; height: 80%; 
     border-radius: 10px; margin-left: 10px; float: left;">
         
         
 
         <form action="" method="post">
-    
+            <p>
+                <input  class="MenuButton" type="submit" value="Моя анкета" name="MyAccount" formaction="./MyAccount.html">
+            </p>
         <p>
             <input  class="MenuButton" type="submit" value="Мои заявки" name="MyForms" formaction="./MyForms.html">
        </p>
@@ -45,9 +47,6 @@
    </p>
    <p>
     <input  class="MenuButton" type="submit" value="Все пользователи" name="AllUsers" formaction="./All.html">
-</p>
-<p>
-    <input  class="MenuButton" type="submit" value="Моя анкета" name="MyAccount" formaction="./MyAccount.html">
 </p>
 <p>
     <input  class="MenuButton" style="margin-bottom: 40%;" type="submit" value="Выйти из аккаунта" name="Logout" formaction="./login.html">
@@ -61,8 +60,8 @@
      </form>
     </div>
 
-    <div style="background-color: aquamarine; float: left; height: 80%; width: 73%; margin-left: 5px; 
-    border-top-right-radius: 40px; opacity: 50%; border-bottom-right-radius: 40px;">
+    <div style="background-color: rgba(127, 255, 212, 0.5); float: left; height: 80%; width: 73%; margin-left: 5px; 
+    border-top-right-radius: 40px; border-bottom-right-radius: 40px;">
 
     </div>
 
