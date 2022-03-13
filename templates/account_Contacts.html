@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <title>Account</title>
     <link rel="shortcut icon" href="https://github.com/SHIR-kon-f10/copy-/blob/main/templates/icon.png?raw=true" type="image/png">
-    <link rel="stylesheet" href="/static/accounts.css">
+    <link rel="stylesheet" href="../static/accounts.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Raleway&display=swap" rel="stylesheet"> 
@@ -15,21 +15,21 @@
 </head>
 <header style="background-color: 0F987F;width: 100%; position: sticky; margin: 0%;" >
     <h1 style=" text-align: right; margin: 0%;">
-    <img src="/static/Main.logo.png" width="160" height="60" title="Главная страница" style="float: left;">
 
     <form action="" method="post" >
+        <input type="button" src="/static/Main.logo.png" width="160" height="60" title="Главная страница" style="float: left;">
+
         <label>{{reqName}}</label>
         <input style="font-size: 20px; background-color: aquamarine;" type="submit" value="Log out" name="log out">
-        <img src="/static/user.png" width="50" height="50" title="Аккаунт">
-        <img src="/static/question.png" width="50" height="50" title="Помощь">
-        <img src="/static/settings.png" width="50" height="50" title="Настройки">
+        <input formaction="/account_Me.html" type="button" src="/static/user.png" width="50" height="50" title="Аккаунт">
+        <input formaction="/help.html" type="button" src="/static/question.png" width="50" height="50" title="Помощь">
     </form>
  
     </h1>
     
 
     </header>
-<body style="margin: 0%; background:url(/static/boat2.png); background-size: 110%;">
+<body style="margin: 0%; background:url(../static/boat2.png); background-size: 110%;">
     <div style="background-color: rgb(81, 81, 129); width: 23%; text-align: center; font-size: 20px; height: 80%; 
     border-radius: 10px; margin-left: 10px; float: left;">
         
@@ -52,6 +52,7 @@
     <input  class="MenuButton" style="margin-bottom: 40%;" type="submit" value="Выйти из аккаунта" name="Logout" formaction="/login.html">
 </p>
 
+
        <p>
         <a style="color: white;" href="https://t.me/drakoncheg">Контакты разработчиков</a>
        </p>
@@ -63,7 +64,7 @@
     border-top-right-radius: 40px; border-bottom-right-radius: 40px;">
         <div style="width: 40%; float: left;" >
             <h1 style="margin-left:25px ;">
-                Мои заявки
+                Контакты
             </h1>
 
             <form action="" method="post">
@@ -117,16 +118,25 @@
             </form>
         </div>
         <div class="ConBlock">
-            <p  class="Con" style="margin-top: 120px ;"><label>{{Condition1}}</label></p>
-            <p  class="Con"><label>{{Condition2}}</label></p>
-            <p  class="Con"><label>{{Condition3}}</label></p>
-            <p  class="Con"><label>{{Condition4}}</label></p>
-            <p  class="Con"><label>{{Condition5}}</label></p>
-            <p  class="Con"><label>{{Condition6}}</label></p>
+            <p  class="Con" style="margin-top: 120px ;"><label>{{Contact1}}</label></p>
+            <p  class="Con"><label>{{Contact2}}</label></p>
+            <p  class="Con"><label>{{Contact3}}</label></p>
+            <p  class="Con"><label>{{Contact4}}</label></p>
+            <p  class="Con"><label>{{Contact5}}</label></p>
+            <p  class="Con"><label>{{Contact6}}</label></p>
 
         </div>
-    </div>
-        
+        <div class="ConBlock">
+            <p  class="Con" style="margin-top: 120px ;"><label>{{RespDate1}}</label></p>
+            <p  class="Con"><label>{{RespDate2}}</label></p>
+            <p  class="Con"><label>{{RespDate3}}</label></p>
+            <p  class="Con"><label>{{RespDate4}}</label></p>
+            <p  class="Con"><label>{{RespDate5}}</label></p>
+            <p  class="Con"><label>{{RespDate6}}</label></p>
+
+        </div>
+
+
     </div>
 
 </body>
