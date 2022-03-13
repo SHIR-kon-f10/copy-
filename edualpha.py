@@ -1,10 +1,10 @@
-from re import S
-from flask import*
+from flask import Flask, render_template, request, redirect
 import psycopg2
 from os import getenv
+from notifiers import *
 #import ImportDB
 
-conn = psycopg2.connect("postgres://cfqvlkbbmkvspl:db76b82007170e9e662f544552bd4748a3c030a67586a12c061b6c9c2f361bf6@ec2-34-253-29-48.eu-west-1.compute.amazonaws.com:5432/dfpo3tnfniqib6")
+conn = psycopg2.connect(getenv("DATABASE_URL"))
 
 app = Flask(__name__)
 
@@ -21,7 +21,7 @@ Tags = ['vanilla']*105
 Whens = ['4th Mr']*21
 Subjects = ['Maths']*21
 
-# Setting Databases ------------------------------------------------------------------------------------------------------------------------------------
+# Setting Databases -------------------------------------------------------------------------------------------------------------------------------------
 #ImportDB.clear_lot()
 #ImportDB.read_lot()
 #ImportDB.insert_lot()
@@ -61,19 +61,19 @@ def registration():
     if request.method == 'POST':
         if request.form.get("Sign_up"):
             name = request.form.get('Name')
-            login = request.form.get('username or E-mail')
+            login = request.form.get('login')
             password = request.form.get('password')
-            surname = request.form.get('Surname')
+            Rpassword = request.form.get('Repeat password')
             try:
                 cursor.execute("ROLLBACK;")
                 cursor.execute("SELECT * FROM users WHERE name = {0};".format(str(login)))
                 render_template('registration.html', exusern = 'This login is already exists')
             except:
-                if len(name)==0 or len(login)==0 or len(password)==0 or len(surname)==0:
+                if len(name)==0 or len(login)==0 or len(password)==0 or len(Rpassword)==0 or Rpassword != password:
                     render_template('registration.html', exusern = 'Fill all gaps')
                 else:
                     cursor.execute("ROLLBACK;")
-                    cursor.execute("INSERT INTO users (name, email, password, surname) VALUES ({0},"'RH'",{2},{3});".format("'" +str(name)+ "'","'" +str(password)+"'", "'"+str(surname)+"'"))
+                    cursor.execute("INSERT INTO users (name, email, password, surname) VALUES ({0},'{1}',{2},{3});".format("'" +str(name)+ "'",str(login),"'" +str(password)+"'", "'"+str(Rpassword)+"'"))
                     conn.commit()
 
                     return redirect('/login/')
@@ -134,9 +134,6 @@ def load_recomendations():
     #records = cursor.fetchall()
     if request.method == 'POST':
         if request.form.get('click'):
-            res = make_response("")
-            res.set_cookie("Form_id", 12345 )
-            res.headers['location'] = url_for("form")
             return redirect('/form/')
         elif request.form.get("Create form"):
             current_session = username
@@ -163,11 +160,19 @@ def load_recomendations():
         Tag4_2_4 = Tags[67], Tag4_2_5 = Tags[68], Tag4_3_1 = Tags[69], Tag4_3_2 = Tags[70], Tag4_3_3 = Tags[71], Tag4_3_4 = Tags[72], Tag4_3_5 = Tags[73], Tag4_4_1 = Tags[74],
         Tag4_4_2 = Tags[75], Tag4_4_3 = Tags[76], Tag4_4_4 = Tags[77], Tag4_4_5 = Tags[78])
 
-@app.route("/form/", methods=["POST","GET"])
-def Form():
-    return render_template("Form.html")
 
+        #TO DO -----------
 
-@app.route("/account/", methods=["POST","GET"])
-def account():
-    return render_template("account.html")
+        # поменять '' на "" в sql запросах и соответственно в функции format()
+        # поменять столбцы в бд и код соответственно: surname -> Rpassword, email -> password 
+        # господи, убрать глобальную переменную и разобраться с куки
+        # перейти с psycopg2 на peewee или защититься от sql инъекций другим способом
+        # заполнить все переменные, передаваемые чтмл или найти способ лучше
+        # добавить репорт почтой
+        # найти способ менять цвет в чтмл через бэкенд и реализовать его
+        # добавить privacy policy для сайта
+        # найти тех, кто поможет попентестить сайт
+        # логгер
+        # уведомления пользователям по почте и телеграм
+
+        #как что помгите 

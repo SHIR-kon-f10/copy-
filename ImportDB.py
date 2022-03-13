@@ -19,7 +19,7 @@ title = []
 description = []
 TagTypee = []
 
-title = []
+title = [] 
 color = []
 
 def clear_lot():
